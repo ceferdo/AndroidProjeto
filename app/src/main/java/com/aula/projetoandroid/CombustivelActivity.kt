@@ -12,9 +12,9 @@ class CombustivelActivity : AppCompatActivity() {
         setContentView(R.layout.activity_combustivel)
 
         combustCalculo.setOnClickListener {
-            val intent = Intent(this@CombustivelActivity, CombustivelActivity::class.java)
-            intent.putExtra("login", valorGasolina.text.toString())
-            intent.putExtra("senha", valorAlcool.text.toString())
+            val intent = Intent(this@CombustivelActivity, ResultCombustActivity::class.java)
+            intent.putExtra("gasolina", valorGasolina.text.toString())
+            intent.putExtra("alcool", valorAlcool.text.toString())
             startActivity(intent)
         }
     }

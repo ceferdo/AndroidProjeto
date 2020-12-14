@@ -1,9 +1,12 @@
 package com.aula.projetoandroid
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_combustivel.*
+import kotlinx.android.synthetic.main.activity_result_combust.*
 
 class ResultCombustActivity : AppCompatActivity() {
 
@@ -14,17 +17,22 @@ class ResultCombustActivity : AppCompatActivity() {
 
         val intent = intent
         if(intent != null) {
-            val gasolina = intent.getStringExtra("valorGasolina")
-          val alcool = intent.getStringExtra("valorAlcool")
+            val gasolina = intent.getStringExtra("gasolina")?.toFloat()
+            val alcool = intent.getStringExtra("alcool")?.toFloat()
 
-            val calculo = gasolina * 0.7
+            val calculo = gasolina!!.times(0.7)
 
-            if (calculo > alcool) {
-                resultado.text = "Alcool é melhor"
+            if (calculo > alcool!!) {
+                resultadoCombust.text = "Alcool é melhor"
             } else {
-                resultado.text = "Gasolina é melhor"
+                resultadoCombust.text = "Gasolina é melhor"
             }
         }
 
+        voltarMenu.setOnClickListener {
+            val intent = Intent(this@ResultCombustActivity, MainActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 }
