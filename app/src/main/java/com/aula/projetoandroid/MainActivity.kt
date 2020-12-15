@@ -15,5 +15,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, CombustivelActivity::class.java)
             startActivity(intent)
         }
+
+        cerveja.setOnClickListener {
+            val intent = Intent(this@MainActivity, CervejaActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

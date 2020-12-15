@@ -13,12 +13,11 @@ class ResultCombustActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result_combust)
-        setSupportActionBar(findViewById(R.id.layout))
 
         val intent = intent
         if(intent != null) {
-            val gasolina = intent.getStringExtra("gasolina")?.toFloat()
-            val alcool = intent.getStringExtra("alcool")?.toFloat()
+            val gasolina = intent.getStringExtra("gasolina")?.toDouble()
+            val alcool = intent.getStringExtra("alcool")?.toDouble()
 
             val calculo = gasolina!!.times(0.7)
 

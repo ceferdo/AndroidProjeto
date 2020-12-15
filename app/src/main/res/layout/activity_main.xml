@@ -34,10 +34,10 @@
                 app:backgroundTint="@color/material_on_surface_emphasis_medium" />
 
             <Button
-                android:id="@+id/calculadora"
+                android:id="@+id/cerveja"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Calculadora"
+                android:text="Contador de Cerveja"
                 app:backgroundTint="@color/material_on_surface_emphasis_medium" />
 
         </LinearLayout>

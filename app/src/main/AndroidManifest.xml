@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoAndroid">
         <activity
+            android:name=".CervejaActivity"
+            android:label="@string/title_activity_cerveja"
+            android:theme="@style/Theme.ProjetoAndroid.NoActionBar"></activity>
+        <activity
             android:name=".ResultCombustActivity"
             android:label="@string/title_activity_result_combust"
-            android:theme="@style/Theme.ProjetoAndroid.NoActionBar"></activity>
+            android:theme="@style/Theme.ProjetoAndroid.NoActionBar" />
         <activity
             android:name=".CombustivelActivity"
             android:label="@string/title_activity_combustivel"
