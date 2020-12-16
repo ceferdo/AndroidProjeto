@@ -9,13 +9,11 @@ import kotlinx.android.synthetic.main.activity_cerveja.*
 
 class CervejaActivity : AppCompatActivity() {
 
+    var contagem = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cerveja)
 
-        var contagem = 0
-
-        var resultado = 0.0
         btnMais.setOnClickListener {
             contagem += 1
             txtContador.text = contagem.toString()
@@ -30,23 +28,26 @@ class CervejaActivity : AppCompatActivity() {
                 txtContador.text = contagem.toString()
             }
         }
-        if(precoCerveja.text.toString() != "") {
-            btnCalcular.setOnClickListener {
+
+        btnCalcular.setOnClickListener {
+            if (precoCerveja.text.toString() != null) {
                 if(cbxPorcentagem.isChecked) {
-                    resultado = precoCerveja.text.toString().toDouble() * contagem * 1.1
-                    txtResultConta.text = resultado.toString()
+                    txtResultConta.text = "R$ " + String.format("%.2f", precoCerveja.text.toString().toDouble() * contagem * 1.1)
                 }
                 else {
-                    resultado = precoCerveja.text.toString().toDouble() * contagem
-                    txtResultConta.text = resultado.toString()
+                    txtResultConta.text = "R$ " + String.format("%.2f", precoCerveja.text.toString().toDouble() * contagem )
                 }
+            } else {
+                Toast.makeText(this@CervejaActivity, "Digitar o preço da Cerveja", Toast.LENGTH_LONG).show();
             }
-        } else {
-            Toast.makeText(this@CervejaActivity, "Digitar o preço da Cerveja", Toast.LENGTH_LONG).show();
+
         }
 
         btnResetarValores.setOnClickListener {
-            txtResultConta.text.toString()
+            contagem = 0
+            txtContador.text = contagem.toString()
+            txtResultConta.text = "R$ - "
+            precoCerveja.text = null
         }
 
         btnMenuPrincipal.setOnClickListener {
